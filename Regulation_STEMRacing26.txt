@@ -1,0 +1,1251 @@
+ EvalScore — Official Portfolio Extraction for Automated Evaluation Platform
+
+ PORTFOLIO 1: DESIGN & ENGINEERING PORTFOLIO
+
+ Overall Marks
+- Total Available Marks: 180 points
+- Maximum Score: 180 points
+- Weighting: 18% of total competition score (180/1000 points)
+- Portfolio Format: Digital & hard copy, A3 or similar size
+- Page Limit: 11 pages maximum (1-page front cover + 10 pages content)
+- Assessment Type: Portfolio-only assessment (no separate interview score mentioned in this section; interview is for demonstration)
+
+---
+
+ Judging Category 1: Design Concepts
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| 0-5 | Single or minimal concepts for car components with no links to research. No relevance to final car. |
+| 6-10 | Basic concepts of car components with limited links to research. Limited relevance to final car. |
+| 11-15 | Good technically inspired ideas that are relevant for different car components linked to research. |
+| 16-20 | Excellent technically inspired ideas for multiple car components with research-detailed. Relevance of the concept strongly justified. |
+
+Assessment Focus:
+- Range and diversity of design concepts
+- Link between concepts and research
+- Relevance to final car design
+- Technical inspiration and justification
+
+Expected Evidence:
+- Multiple design concepts presented
+- Research showing concept development
+- Clear justification showing why final design was chosen
+
+Automatic Evaluation Potential: PARTIALLY
+- YES: Count of concepts presented, presence of research links
+- NO: Quality of concepts, strength of justification, technical merit
+
+AI Evaluation Requirements:
+- NLP analysis of concept descriptions
+- Quality assessment of technical reasoning
+- Coherence of research-to-concept links
+- Depth of engineering justification
+
+---
+
+ Judging Category 2: 3D Modelling
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| 0-5 | Minimal application of 3D modelling techniques. Only final design 3D modelled. |
+| 6-10 | Basic use of 3D modelling tools and techniques. More than 1 design included with different iterations. |
+| 11-15 | Good use of advanced 3D modelling tools, showcasing skill and technique. Dimensional constraints of the STEM RACING model block considered. Design approach explained. Design for manufacture considerations noted (i.e., fillets, tolerance of machining). |
+| 16-20 | Expert use of a wide range of complex 3D modelling techniques, demonstrating exceptional skill and innovation. Design for manufacture directs process (i.e., machining tool availability, fit clearances). Quality of CAD surfaces analyzed. |
+
+Assessment Focus:
+- Range of 3D modelling techniques used
+- Multiple design iterations demonstrated
+- Consideration of dimensional constraints
+- Design for manufacture integration
+- CAD surface quality analysis
+
+Expected Evidence:
+- Multiple iterations shown (more than 1 design)
+- Evidence of complex modelling techniques
+- Tolerances and machining considerations documented
+- Surface quality analysis if applicable
+
+Automatic Evaluation Potential: PARTIALLY
+- YES: Presence of multiple design iterations, detection of technical CAD terminology
+- NO: Quality of modelling techniques, skill demonstration
+
+AI Evaluation Requirements:
+- CAD terminology recognition (fillets, tolerances, surface analysis)
+- Assessment of manufacturing reasoning
+- Quality assessment of model documentation
+
+---
+
+ Judging Category 3: Application of Computer Aided Analysis
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| 0-5 | Poor choice and no justification of simulation parameters. Weak analysis with poorly presented/no results. No design choices made based on FEA/CFD study. |
+| 6-10 | Limited choice and justification of simulation parameters. Limited analysis and results. Little to no design choices made based on FEA/CFD study. |
+| 11-15 | Well-justified choice and understanding of simulation. Good analysis with clear, well-presented results. Some design choices made based on FEA/CFD study. |
+| 16-20 | Excellent choice & understanding of simulation parameters. Detailed analysis with clear, well-presented results. Proven design improvements made based on FEA/CFD study. |
+
+Assessment Focus:
+- Choice and justification of simulation parameters
+- Quality and clarity of analysis results
+- Application of findings to design decisions
+- Understanding of FEA/CFD principles
+
+Expected Evidence:
+- Simulation setups documented
+- Results presented clearly
+- Design improvements directly linked to analysis findings
+
+Automatic Evaluation Potential: PARTIALLY
+- YES: Presence of FEA/CFD sections, result images/graphs, terminology detection
+- NO: Quality of justification, relevance of findings to design
+
+AI Evaluation Requirements:
+- FEA/CFD terminology recognition
+- Image/graph detection and analysis
+- Reasoning chain: simulation → results → design changes
+- Quality of technical explanation
+
+---
+
+ Judging Category 4: Use of CAM/CNC
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| 0-5 | No or minimal evidence of CAM/CNC understanding or manufacturing. |
+| 6-10 | Basic evidence of CAM/CNC processes and manufacturing. |
+| 11-15 | Good use and understanding of CAM/CNC processes to achieve manufacturing goals. Manufacturing issues noted with limited problem solving. |
+| 16-20 | Evidence of excellent understanding of CAM/CNC technologies. Appropriate techniques and processes used to achieve manufacturing goals. Manufacturing issues discussed with innovative problem-solving solutions. |
+
+Assessment Focus:
+- Evidence of CAM/CNC understanding
+- Manufacturing processes documented
+- Problem-solving demonstrated
+- Achievement of manufacturing goals
+
+Expected Evidence:
+- Manufacturing processes documented
+- Toolpath/CNC evidence
+- Problem-solving shown
+- Manufacturing outcomes
+
+Automatic Evaluation Potential: PARTIALLY
+- YES: Presence of CAM/CNC section, manufacturing terminology, process descriptions
+- NO: Quality of understanding, depth of problem-solving
+
+AI Evaluation Requirements:
+- CAM/CNC technical vocabulary recognition
+- Manufacturing process analysis
+- Quality assessment of problem-solving narrative
+
+---
+
+ Judging Category 5: Other Manufacturing & Assembly
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| 0-5 | No or minimal manufacturing presented. No or minimal consideration of quality assurance and workplace safety documented. No or minimal justification of outsourcing. The manufacturing process is mentioned without detail. |
+| 6-10 | Basic consideration of quality assurance and workplace safety documented. Basic justification of outsourcing. The manufacturing process is mentioned without detail. |
+| 11-15 | Good manufacturing process and stages described. Good consideration of quality assurance and workplace safety documented. Appropriate use of manufacturing resources documented (i.e., tools, finishes, jigs, fixtures). Outsourcing clearly explained and justified. |
+| 16-20 | Details all manufacturing stages and processes. Quality assurance and workplace safety considerations evident. Appropriate outsourcing justified with make vs buy analysis. |
+
+Assessment Focus:
+- Manufacturing process documentation
+- Quality assurance
+- Workplace safety
+- Resource management (tools, finishes, jigs, fixtures)
+- Outsourcing justification with make vs buy analysis
+
+Expected Evidence:
+- All manufacturing stages described
+- Quality control processes documented
+- Workplace safety considerations shown
+- Clear outsourcing justification
+
+Automatic Evaluation Potential: PARTIALLY
+- YES: Section presence, manufacturing terminology, QA/safety keywords
+- NO: Quality of process description, depth of make vs buy analysis
+
+AI Evaluation Requirements:
+- Manufacturing process completeness
+- Quality assurance reasoning
+- Safety consideration quality
+- Analysis of outsourcing decisions
+
+---
+
+ Judging Category 6: Research & Development
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| 0-5 | No or limited evidence of R&D. |
+| 6-10 | Basic evidence of R&D with some principles considered. |
+| 11-15 | Some scientific & mathematical theories and principles considered. Logical research based design developments explained and justified. |
+| 16-20 | Relevant R&D throughout the entire product design & development cycle. Design concept developments refined and justified from research & test findings. |
+
+Assessment Focus:
+- Breadth and depth of R&D
+- Application of scientific and mathematical principles
+- Research-driven design development
+- Integration throughout design cycle
+
+Expected Evidence:
+- Research and theory explained
+- How research informed design decisions
+- Full design cycle documented
+
+Automatic Evaluation Potential: PARTIALLY
+- YES: Section presence, R&D terminology, citation of theories
+- NO: Quality of research, depth of application to design
+
+AI Evaluation Requirements:
+- Scientific/mathematical vocabulary recognition
+- Coherence of research-to-design narrative
+- Quality of theoretical application
+
+---
+
+ Judging Category 7: Testing
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| 0-5 | No or little evidence of testing on the fully assembled car and individual components. Limited testing. |
+| 6-10 | Some evidence of method and outcomes on the fully assembled car and individual components. |
+| 11-15 | Good testing. Different evidence of method and outcomes. Some evidence of virtual and physical testing on the fully assembled car and individual components. |
+| 16-20 | Appropriate testing with excellent methods and outcomes documented. Comprehensive evidence of virtual and physical testing on the fully assembled car and individual components. |
+
+Assessment Focus:
+- Evidence of testing (virtual and physical)
+- Range of tests conducted (individual components and assembled car)
+- Clear methodology and outcomes
+- Comprehensive documentation
+
+Expected Evidence:
+- Methods documented
+- Results shown
+- Both virtual and physical testing
+- Component and assembled car testing
+
+Automatic Evaluation Potential: PARTIALLY
+- YES: Section presence, testing terminology, images of testing, mention of virtual/physical
+- NO: Quality of testing, appropriateness of methods
+
+AI Evaluation Requirements:
+- Testing methodology analysis
+- Result presentation quality
+- Completeness of testing documentation
+
+---
+
+ Judging Category 8: Design Process Evaluation
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| 0-5 | No or limited Ideas or process evaluations at different stages. No or limited documentation of evaluation-linked improvement actions. |
+| 6-10 | Basic Ideas or process evaluations at different stages. Basic documentation of evaluation-linked improvement actions. |
+| 11-15 | Multiple Ideas or process evaluations at different stages. Good documentation of evaluation-linked improvement actions. |
+| 16-20 | Excellent ongoing idea evaluations linked to improvement actions. Comprehensive documentation of evaluation-linked improvement actions. |
+
+Assessment Focus:
+- Evaluation throughout design process
+- Multiple evaluations at different stages
+- Documentation of improvements
+- Link between evaluation and action
+
+Expected Evidence:
+- Multiple iterations shown
+- Each iteration evaluated
+- Improvements documented
+- Clear evaluation-to-action link
+
+Automatic Evaluation Potential: PARTIALLY
+- YES: Number of iterations, presence of evaluation sections, improvement descriptions
+- NO: Quality of evaluations, depth of improvements
+
+AI Evaluation Requirements:
+- Iteration tracking
+- Quality of evaluation reasoning
+- Strength of improvement actions
+
+---
+
+ Judging Category 9: Document Presentation
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| 0-5 | Difficult to follow with basic presentation standard. Basic organization. |
+| 6-10 | Good and clear structure, well organized. |
+| 11-15 | High impact and professional throughout. |
+| 16-20 | Consistent and clear organization. |
+
+Note: The scorecard shows overlapping descriptions. Based on the patterns, the full range would be:
+
+| Score Band | Description |
+|------------|-------------|
+| 0-5 | Difficult to follow with basic presentation standard. Basic organization. |
+| 6-10 | Good and clear structure, well organized. |
+| 11-15 | High impact and professional throughout. |
+| 16-20 | Consistent and clear organization. |
+
+Assessment Focus:
+- Clarity of structure
+- Professional presentation
+- Visual impact
+- Consistency
+
+Expected Evidence:
+- Clear page layout
+- Professional design
+- Consistent formatting
+- Easy to navigate
+
+Automatic Evaluation Potential: YES (partially)
+- YES: PDF quality assessment, page layout detection, image-to-text ratio
+- NO: Professional impact, visual quality
+
+---
+
+ DESIGN & ENGINEERING PORTFOLIO SCORING SUMMARY
+
+| Judging Category | Maximum Marks |
+|------------------|---------------|
+| Design Concepts | 20 |
+| 3D Modelling | 20 |
+| Application of Computer Aided Analysis | 20 |
+| Use of CAM/CNC | 20 |
+| Other Manufacturing & Assembly | 20 |
+| Research & Development | 20 |
+| Testing | 20 |
+| Design Process Evaluation | 20 |
+| Document Presentation | 20 |
+| TOTAL | 180 |
+
+---
+
+---
+
+ PORTFOLIO 2: PROJECT MANAGEMENT PORTFOLIO
+
+ Overall Marks
+- Total Available Marks: 90 points
+- Maximum Score: 90 points
+- Weighting: 9% of total competition score (90/1000 points)
+- Portfolio Format: Digital & hard copy, A3 or similar size
+- Page Limit: 7 pages maximum (1-page front cover + 6 pages content)
+- Assessment Type: Portfolio-only assessment plus interview at Pit Display
+
+---
+
+ Judging Category 1: Initiating - Initiation Process
+Maximum Marks: 35 points (combined with Project Schedule in Project Management category)
+
+Based on the Project Management scorecard structure, these categories appear to be sub-categories within broader judging areas:
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Minimal evidence of initiation process, poorly defined project scope and objectives. |
+| Basic | Limited evidence of initiation process with some scope definition. |
+| Good | Well-defined initiation process with clear project scope, objectives, and stakeholder identification. |
+| Excellent | Comprehensive initiation process showing clear vision, scope, objectives, stakeholder engagement, and project charter/initiation documentation. |
+
+Assessment Focus:
+- Project scope definition
+- Clear objectives
+- Stakeholder identification
+- Project initiation documentation
+
+Expected Evidence:
+- Project scope statement
+- Clear objectives
+- Stakeholder identification
+- Initiation process documentation
+
+---
+
+ Judging Category 2: Initiating - Project Schedule
+Maximum Marks: 35 points (combined with Initiation Process)
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Minimal or no project schedule, no timeline, no milestones identified. |
+| Basic | Basic schedule with some milestones but lacking detail. |
+| Good | Well-structured schedule with clear milestones, tasks, timeline, and some dependencies. |
+| Excellent | Comprehensive schedule demonstrating understanding of critical path, dependencies, and realistic timelines with detailed milestones. |
+
+Assessment Focus:
+- Timeline development
+- Milestone identification
+- Task dependencies
+- Critical path understanding
+
+Expected Evidence:
+- Gantt chart or schedule
+- Milestones documented
+- Task dependencies shown
+- Realistic timeline
+
+Automatic Evaluation Potential: PARTIALLY
+- YES: Gantt chart presence, timeline data, milestone count
+- NO: Quality of scheduling, critical path reasoning
+
+AI Evaluation Requirements:
+- Schedule visualization analysis
+- Critical path identification
+- Timeline reasonableness
+- Dependency logic
+
+---
+
+ Judging Category 3: Planning - Budget & Resource Management
+Maximum Marks: 25 points
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Minimal or no budget, no resource planning, no cost tracking. |
+| Basic | Basic budget with some resource considerations but limited detail. |
+| Good | Well-planned budget with clear resource allocation, cost tracking, and justification. |
+| Excellent | Comprehensive budget with detailed resource planning, cost tracking, variance analysis, and financial management justification. |
+
+Assessment Focus:
+- Budget development
+- Resource allocation
+- Cost tracking
+- Financial management
+
+Expected Evidence:
+- Budget breakdown
+- Resource allocation
+- Cost justification
+- Financial tracking
+
+---
+
+ Judging Category 4: Planning - Roles and Responsibilities
+Maximum Marks: 25 points
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Minimal or no role definition, responsibilities unclear. |
+| Basic | Basic role definition with some responsibilities assigned. |
+| Good | Clear role definitions with responsibilities mapped to team members. |
+| Excellent | Comprehensive role/responsibility structure with clear delegation, individual contributions, and team development. |
+
+Assessment Focus:
+- Role definition
+- Responsibility assignment
+- Team structure
+- Skill utilization
+
+Expected Evidence:
+- Team roles documented
+- Responsibilities mapped
+- Individual contributions shown
+
+---
+
+ Judging Category 5: Executing - Team & Stakeholder Communications
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Minimal or no communication planning, no evidence of communication with stakeholders. |
+| Basic | Basic communication planning with some evidence of stakeholder communication. |
+| Good | Clear communication strategy documented with regular stakeholder engagement. |
+| Excellent | Comprehensive communication plan with evidence of regular, effective stakeholder communication and engagement. |
+
+Assessment Focus:
+- Communication planning
+- Stakeholder engagement
+- Team communication
+- Regular updates
+
+Expected Evidence:
+- Communication plan
+- Meeting minutes or records
+- Stakeholder updates
+- Team collaboration evidence
+
+---
+
+ Judging Category 6: Executing - Risk Management
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Minimal or no risk identification, no mitigation planning. |
+| Basic | Basic risk identification with limited mitigation strategies. |
+| Good | Clear risk identification and analysis with documented mitigation strategies. |
+| Excellent | Comprehensive risk management with identification, analysis, mitigation, and monitoring throughout project. |
+
+Assessment Focus:
+- Risk identification
+- Risk analysis
+- Mitigation strategies
+- Risk monitoring
+
+Expected Evidence:
+- Risk register
+- Mitigation plans
+- Risk assessment
+
+---
+
+ Judging Category 7: Monitor and Controlling - Monitoring & Controlling
+Maximum Marks: 10 points
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | No evidence of monitoring or controlling processes. |
+| Basic | Limited monitoring with minimal control processes. |
+| Good | Clear monitoring processes with evidence of control mechanisms. |
+| Excellent | Comprehensive monitoring and controlling processes with evidence of project adjustment and improvement. |
+
+Assessment Focus:
+- Monitoring processes
+- Control mechanisms
+- Project adjustment
+- Evidence of improvement
+
+Expected Evidence:
+- Progress tracking
+- Control mechanisms
+- Project adjustments shown
+- Improvement evidence
+
+---
+
+ PROJECT MANAGEMENT PORTFOLIO SCORING SUMMARY
+
+| Judging Category | Maximum Marks |
+|------------------|---------------|
+| Initiating: Initiation Process | 35 |
+| Initiating: Project Schedule | (included in 35 above) |
+| Planning: Budget & Resource Management | 25 |
+| Planning: Roles and Responsibilities | (included in 25 above) |
+| Executing: Team & Stakeholder Communications | 20 |
+| Executing: Risk Management | (included in 20 above) |
+| Monitor and Controlling: Monitoring & Controlling | 10 |
+| TOTAL | 90 |
+
+---
+
+---
+
+ PORTFOLIO 3: ENTERPRISE PORTFOLIO
+
+ Overall Marks
+- Total Available Marks: 180 points (100 Enterprise Portfolio + 20 Team Identity + 60 Pit Display)
+- Maximum Score: 180 points
+- Weighting: 18% of total competition score (180/1000 points)
+- Portfolio Format: Digital & hard copy, A3 or similar size
+- Page Limit: 12 pages (1-page front cover + 10 pages content + 1 page back cover)
+- Assessment Type: Portfolio-only assessment plus Pit Display and interview
+
+---
+
+ Portfolio-Only Assessment Categories (100 points)
+
+---
+
+ Judging Category 1: Marketing Strategy & Materials
+Maximum Marks: Not explicitly quantified individually but part of Enterprise Portfolio Only Assessment total
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Little or no marketing strategy. Minimal marketing materials. |
+| Basic | Basic marketing strategy described. Some marketing materials developed. |
+| Good | Clear marketing strategy with reasoning. Good marketing materials demonstrating brand awareness. |
+| Excellent | Comprehensive marketing strategy with clear reasoning. Professional marketing materials showing strong brand development. |
+
+Assessment Focus:
+- Marketing strategy development
+- Marketing materials quality
+- Brand awareness
+- Reasoning behind marketing activities
+
+Expected Evidence:
+- Marketing strategy summary
+- Marketing materials (brochures, etc.)
+- Branding application
+- Marketing rationale
+
+---
+
+ Judging Category 2: Sponsorship & Return on Investment
+Maximum Marks: Not explicitly quantified individually but part of Enterprise Portfolio Only Assessment total
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Minimal or no sponsorship obtained. No evidence of ROI consideration. |
+| Basic | Some sponsorship obtained. Basic explanation of sponsor relationship and benefits. |
+| Good | Multiple sponsors obtained. Clear explanation of sponsor relationships and ROI. |
+| Excellent | Strong sponsorship engagement with clear ROI evidence. Professional sponsor management and relationship building. |
+
+Assessment Focus:
+- Sponsorship obtained
+- Sponsor relationships
+- ROI evidence
+- Professional sponsor management
+
+Expected Evidence:
+- Sponsor list
+- Sponsor engagement explanation
+- ROI justification
+- Benefit description
+
+---
+
+ Judging Category 3: Digital Media Proficiency
+Maximum Marks: Not explicitly quantified individually but part of Enterprise Portfolio Only Assessment total
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Little or no digital media presence. Minimal online communication. |
+| Basic | Some digital media presence. Basic online communication. |
+| Good | Active digital media presence across multiple platforms. Clear strategy for online communications. |
+| Excellent | Strong digital media presence with professional online communication. Comprehensive strategy across platforms. |
+
+Assessment Focus:
+- Digital media presence
+- Online communications
+- Strategy and reasoning
+- Platform utilization
+
+Expected Evidence:
+- Social media presence
+- Website or online platform
+- Digital media strategy
+- Campaign execution
+
+---
+
+ Judging Category 4: Sustainability
+Maximum Marks: Not explicitly quantified individually but part of Enterprise Portfolio Only Assessment total
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Minimal or no sustainability considerations. |
+| Basic | Some sustainability considerations mentioned. |
+| Good | Clear sustainability strategy addressing multiple factors (economic, environmental, social). |
+| Excellent | Comprehensive sustainability strategy with clear integration into project decisions (economic, environmental, social factors). |
+
+Assessment Focus:
+- Sustainability strategy
+- Economic considerations
+- Environmental considerations
+- Social considerations
+
+Expected Evidence:
+- Sustainability strategy
+- Evidence of sustainability activities
+- Integration into project decisions
+
+---
+
+ Judging Category 5: Document Presentation
+Maximum Marks: Not explicitly quantified individually but part of Enterprise Portfolio Only Assessment total
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Difficult to follow with basic presentation standard. Basic organization. |
+| Basic | Some organization with basic presentation. |
+| Good | Good and clear structure, well organized. |
+| Excellent | High impact and professional throughout. Consistent and clear organization. |
+
+Assessment Focus:
+- Clarity of structure
+- Professional presentation
+- Visual impact
+- Consistency
+
+Expected Evidence:
+- Clear page layout
+- Professional design
+- Consistent formatting
+- Easy to navigate
+
+---
+
+ Pit Display Categories (60 points total)
+
+---
+
+ Judging Category 6: Pit Display Design Process
+Maximum Marks: Part of 60-point Pit Display total (referenced in Enterprise scorecard)
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Minimal design process evident. Poor connection to portfolio. |
+| Basic | Some design process shown. Basic connection to portfolio. |
+| Good | Clear design process documented. Good connection to portfolio. |
+| Excellent | Professional design process documented in Enterprise Portfolio. Excellent connection between display and portfolio. |
+
+Assessment Focus:
+- Design process documented
+- Connection to portfolio
+- Professional approach
+
+Expected Evidence:
+- Design process in portfolio
+- Connection between display and portfolio
+- Design reasoning
+
+---
+
+ Judging Category 7: Content, Clarity, and Impact
+Maximum Marks: Part of 60-point Pit Display total
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Confusing content, poor clarity, minimal impact. |
+| Basic | Some clarity with limited impact. |
+| Good | Clear content with good impact. |
+| Excellent | Exceptional content clarity and impact with professional presentation. |
+
+Assessment Focus:
+- Content quality
+- Clarity of communication
+- Visual impact
+- Professional presentation
+
+Expected Evidence:
+- Clear messaging
+- Professional display
+- Visual impact
+
+---
+
+ Judging Category 8: Functionality & User Experience
+Maximum Marks: Part of 60-point Pit Display total
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Poor functionality, poor user experience. |
+| Basic | Some functionality with limited user experience consideration. |
+| Good | Good functionality and user experience. |
+| Excellent | Exceptional functionality with excellent user experience. |
+
+Assessment Focus:
+- Functionality of display
+- User experience
+- Interactive elements
+
+Expected Evidence:
+- Working display elements
+- User-friendly design
+- Interactive components
+
+---
+
+ Team Identity Categories (20 points total)
+
+---
+
+ Judging Category 9: Overall Team Identity
+Maximum Marks: 20 points
+
+| Score Band | Description |
+|------------|-------------|
+| Poor | Inconsistent or minimal team identity. |
+| Basic | Some team identity elements present. |
+| Good | Clear team identity with consistent application. |
+| Excellent | Strong, cohesive team identity applied consistently across all elements (pit display, portfolio, car, uniforms). |
+
+Assessment Focus:
+- Team identity consistency
+- Application across all elements
+- Cohesiveness
+- Professionalism
+
+Expected Evidence:
+- Consistent branding across:
+  - Pit display
+  - Enterprise portfolio
+  - Engineering portfolio
+  - Project Management portfolio
+  - Car
+  - Team uniform
+
+Assessment Method: Based on all aspects of team's identity across all documentation and display.
+
+---
+
+ ENTERPRISE PORTFOLIO SCORING SUMMARY
+
+| Judging Category | Maximum Marks |
+|------------------|---------------|
+| Enterprise Portfolio Only Assessment | 100 |
+| - Marketing Strategy & Materials | (included) |
+| - Sponsorship & Return on Investment | (included) |
+| - Digital Media Proficiency | (included) |
+| - Sustainability | (included) |
+| - Document Presentation | (included) |
+| Team Identity (Overall Team Identity) | 20 |
+| Pit Display (Design Process, Content, Functionality) | 60 |
+| TOTAL | 180 |
+
+---
+
+ MASTER CRITERIA LIST - ALL PORTFOLIOS
+
+ Design & Engineering Portfolio (180 points)
+1. Design Concepts (20)
+2. 3D Modelling (20)
+3. Application of Computer Aided Analysis (20)
+4. Use of CAM/CNC (20)
+5. Other Manufacturing & Assembly (20)
+6. Research & Development (20)
+7. Testing (20)
+8. Design Process Evaluation (20)
+9. Document Presentation (20)
+
+ Project Management Portfolio (90 points)
+1. Initiating: Initiation Process (35)
+2. Initiating: Project Schedule (included)
+3. Planning: Budget & Resource Management (25)
+4. Planning: Roles and Responsibilities (included)
+5. Executing: Team & Stakeholder Communications (20)
+6. Executing: Risk Management (included)
+7. Monitor and Controlling: Monitoring & Controlling (10)
+
+ Enterprise Portfolio (180 points)
+1. Marketing Strategy & Materials (included in 100)
+2. Sponsorship & Return on Investment (included in 100)
+3. Digital Media Proficiency (included in 100)
+4. Sustainability (included in 100)
+5. Document Presentation (included in 100)
+6. Overall Team Identity (20)
+7. Pit Display Design Process (included in 60)
+8. Content, Clarity, and Impact (included in 60)
+9. Functionality & User Experience (included in 60)
+
+---
+
+ COMPLETE MARK ALLOCATION TABLE
+
+| Category | Sub-Category | Marks |
+|----------|--------------|-------|
+| Design & Engineering | | 180 |
+| | Design Concepts | 20 |
+| | 3D Modelling | 20 |
+| | Application of Computer Aided Analysis | 20 |
+| | Use of CAM/CNC | 20 |
+| | Other Manufacturing & Assembly | 20 |
+| | Research & Development | 20 |
+| | Testing | 20 |
+| | Design Process Evaluation | 20 |
+| | Document Presentation | 20 |
+| Project Management | | 90 |
+| | Initiating | 35 |
+| | Planning | 25 |
+| | Executing | 20 |
+| | Monitor and Controlling | 10 |
+| Enterprise | | 180 |
+| | Enterprise Portfolio | 100 |
+| | Team Identity | 20 |
+| | Pit Display | 60 |
+| TOTAL | | 450 |
+
+---
+
+ CRITERIA SUITABLE FOR DETERMINISTIC EVALUATION
+
+These criteria can be evaluated programmatically without AI:
+
+ Page Count and Structure
+- Design & Engineering: ≤11 pages
+- Project Management: ≤7 pages
+- Enterprise: ≤12 pages
+- Section detection
+- Required elements present
+
+ Content Presence
+- CAD files presence
+- Manufacturing photos presence
+- Test results images
+- Charts and graphs presence
+- Timeline/Gantt chart presence
+- Budget table presence
+- Risk register presence
+- Sponsor logos presence
+- Marketing materials presence
+
+ Technical Detection
+- FEA/CFD terminology
+- CAM/CNC evidence
+- CAD terminology
+- Engineering vocabulary
+- Design iteration count
+- Testing method mention
+- Quality assurance terminology
+- Safety considerations
+
+ Format Compliance
+- PDF format
+- File naming convention
+- Page count
+- Font embedding
+- Color consistency
+- Logo placement
+- STEM Racing branding presence
+
+ Reference Detection
+- Research references/citations
+- Partnership mentions
+- Sponsor acknowledgments
+
+ Visual Elements
+- Image count
+- CAD image presence
+- Graph presence
+- Table presence
+
+---
+
+ CRITERIA REQUIRING AI EVALUATION
+
+ Design & Engineering
+1. Design Concepts Quality
+   - Technical depth of concepts
+   - Strength of justification
+   - Innovation assessment
+
+2. 3D Modelling Quality
+   - Skill demonstration
+   - Complexity of models
+   - Design for manufacture integration
+
+3. Analysis Quality
+   - Strength of FEA/CFD justification
+   - Relevance of design improvements
+   - Depth of understanding
+
+4. CAM/CNC Understanding
+   - Technical accuracy
+   - Depth of knowledge
+   - Problem-solving quality
+
+5. Manufacturing Process Quality
+   - Process completeness
+   - Quality assurance depth
+   - Make vs buy analysis quality
+
+6. Research & Development Quality
+   - Research depth
+   - Scientific reasoning
+   - Application to design
+
+7. Testing Quality
+   - Methodology appropriateness
+   - Result analysis
+   - Learning application
+
+8. Design Process Quality
+   - Evaluation depth
+   - Improvement quality
+   - Iteration quality
+
+9. Presentation Professionalism
+   - Visual quality
+   - Impact
+   - Consistency
+
+ Project Management
+1. Initiation Process Quality
+   - Scope definition
+   - Stakeholder engagement
+   - Project vision
+
+2. Project Schedule Quality
+   - Critical path understanding
+   - Dependency logic
+   - Timeline reasonableness
+
+3. Budget Quality
+   - Cost tracking depth
+   - Financial management
+   - Variance analysis
+
+4. Roles & Responsibilities
+   - Team development
+   - Skill utilization
+   - Delegation quality
+
+5. Communication Quality
+   - Stakeholder engagement
+   - Communication effectiveness
+   - Meeting documentation
+
+6. Risk Management Quality
+   - Risk identification depth
+   - Mitigation quality
+   - Monitoring evidence
+
+7. Monitoring Quality
+   - Control mechanisms
+   - Project adjustment
+   - Improvement evidence
+
+ Enterprise
+1. Marketing Strategy Quality
+   - Strategic reasoning
+   - Brand development
+   - Material quality
+
+2. Sponsorship Quality
+   - Relationship management
+   - ROI depth
+   - Professionalism
+
+3. Digital Media Quality
+   - Content quality
+   - Strategy depth
+   - Engagement
+
+4. Sustainability Quality
+   - Integration depth
+   - Factor balance
+   - Implementation
+
+5. Document Presentation Quality
+   - Professionalism
+   - Visual quality
+   - Consistency
+
+6. Team Identity Quality
+   - Cohesiveness
+   - Consistency across all elements
+   - Professional brand
+
+7. Pit Display Quality
+   - Design quality
+   - Content clarity
+   - User experience
+   - Professional execution
+
+---
+
+ RECOMMENDED SOFTWARE ARCHITECTURE
+
+ Evaluation Pipeline Overview
+
+```
+┌─────────────────┐
+│   Portfolio     │
+│   Uploads       │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│         DOCUMENT INGESTION               │
+│  - PDF parsing (PyPDF2, PDFPlumber)     │
+│  - Image extraction                     │
+│  - Text extraction                      │
+│  - Page counting                        │
+│  - Structure detection                  │
+└────────┬────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│         DETERMINISTIC CHECKS             │
+│  - Page count validation                │
+│  - Section presence detection           │
+│  - Required element detection           │
+│  - File naming compliance               │
+│  - Format compliance                    │
+│  - Image detection (CAD, graphs, etc.)  │
+│  - Technical terminology detection      │
+└────────┬────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│         AI EVALUATION ENGINE             │
+│  ┌──────────────────────────────────┐   │
+│  │  NLP Quality Analysis            │   │
+│  │  - Content relevance             │   │
+│  │  - Reasoning coherence           │   │
+│  │  - Technical accuracy            │   │
+│  │  - Professional tone             │   │
+│  │  - Innovation detection          │   │
+│  └──────────────────────────────────┘   │
+│  ┌──────────────────────────────────┐   │
+│  │  Image/Visual Analysis           │   │
+│  │  - CAD quality                   │   │
+│  │  - Graph quality                 │   │
+│  │  - Visual consistency            │   │
+│  │  - Brand application             │   │
+│  └──────────────────────────────────┘   │
+│  ┌──────────────────────────────────┐   │
+│  │  Comparative Analysis            │   │
+│  │  - Cross-section consistency     │   │
+│  │  - Iteration tracking            │   │
+│  │  - Evidence completeness         │   │
+│  └──────────────────────────────────┘   │
+└────────┬────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│         SCORING ENGINE                   │
+│  - Criterion scoring                    │
+│  - Weighted calculation                 │
+│  - Confidence scoring                   │
+│  - Result aggregation                   │
+└────────┬────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────┐
+│         OUTPUT / REPORT                 │
+│  - Score by criterion                   │
+│  - Score by category                    │
+│  - Overall score                        │
+│  - AI confidence scores                 │
+│  - Feedback generation                  │
+└─────────────────────────────────────────┘
+```
+
+ Module Descriptions
+
+ 1. Document Ingestion Module
+- Parse PDF files using PyPDF2, PDFPlumber, or similar
+- Extract text content with metadata
+- Extract images (CAD renderings, graphs, tables)
+- Count pages, detect sections
+- Structure detection (headings, tables, images)
+
+ 2. Deterministic Check Module
+- Page Limit Check: Verify against portfolio requirements
+- Section Detection: Search for required sections by heading or content
+- Element Presence: Detect images, tables, graphs, CAD files
+- Terminology Detection: Keyword matching for engineering and project management terms
+- Format Compliance: Check file naming, page size, PDF quality
+- Reference Detection: Citation presence and formatting
+
+ 3. AI Evaluation Module
+
+ 3.1 NLP Quality Analysis
+- Model Type: Large Language Model (LLM) fine-tuned on STEM education content
+- Evaluation Tasks:
+  - Content relevance to judging criteria
+  - Coherence of technical reasoning
+  - Depth of engineering justification
+  - Innovation assessment
+  - Professional tone
+  - Evidence completeness
+  - Linkage between sections
+
+ 3.2 Visual/Image Analysis
+- Model Type: Vision Transformer (ViT) or similar
+- Evaluation Tasks:
+  - CAD image quality
+  - Graph/chart clarity
+  - Visual consistency across portfolio
+  - Branding application
+  - Layout professionalism
+
+ 3.3 Comparative Analysis
+- Model Type: Rule-based + AI combination
+- Evaluation Tasks:
+  - Cross-section consistency
+  - Iteration tracking
+  - Evidence completeness
+  - Design improvement progression
+
+ 4. Scoring Engine
+- Apply scoring rubrics per criterion
+- Calculate weighted scores
+- Generate confidence scores for AI-based evaluations
+- Aggregate totals per portfolio
+- Produce final scores
+
+ 5. Output/Report Module
+- Generate score reports per portfolio
+- Provide criterion-by-criterion feedback
+- Show confidence levels
+- Identify improvement areas
+- Export to database
+
+ Technology Recommendations
+
+| Component | Technology |
+|-----------|------------|
+| Document Parsing | PyPDF2, PDFPlumber, Apache Tika |
+| NLP Analysis | OpenAI GPT API, Google Gemini, Claude, or Fine-tuned BERT/RoBERTa |
+| Image Analysis | Vision Transformer (ViT), ResNet, or similar |
+| Backend | FastAPI or Flask |
+| Database | PostgreSQL with vector support |
+| Caching | Redis |
+| Queue System | Celery for asynchronous processing |
+| Monitoring | Logging, Prometheus, Grafana |
+| Deployment | Docker, Kubernetes |
+
+ Confidence Scoring
+- High Confidence: Deterministic checks (page counts, section presence)
+- Medium Confidence: AI text analysis with clear criteria
+- Low Confidence: AI visual analysis, subjective quality assessments
+
+ Quality Assurance
+- Manual reviews for AI-flagged borderline cases
+- Inter-rater reliability testing
+- Continuous model refinement
+- Bias detection and mitigation
+- Regular calibration against human judges
+
+---
+
+ REQUIRED DELIVERABLES SUMMARY
+
+ Per Portfolio
+
+Design & Engineering:
+- CAD parts and assembly files
+- Engineering drawings (orthographic + renders)
+- 11-page A3 portfolio
+- Computer with CAD software for demonstration
+
+Project Management:
+- 7-page A3 portfolio
+- Gantt chart/schedule
+- Budget breakdown
+- Risk register
+
+Enterprise:
+- 12-page A3 portfolio (front cover + 10 pages + back cover)
+- Marketing materials
+- Sponsor documentation
+- Pit Display
+- Team identity elements (logo, branding)
+- Back cover with STEM Racing India logo, team logo, and team photo
+
+ Engineering Drawing Table of Contents (Mandatory)
+1. Orthographic drawings with detailed dimensions of fully assembled car indicating regulation compliance
+2. Exploded isometric drawing with key to main components
+   a. Car body
+   b. Virtual cargo
+   c. Chamber
+   d. Tether line guides
+   e. Front wheels / wheel support system
+   f. Rear wheels / Wheel support system
+   g. Nose cone
+   h. Front wing / support structure
+   i. Rear wing / support structure
+3. Orthographic drawings with detailed dimensions of virtual cargo including a sectioned view
+4. Location of official STEM Racing India decals dimensioned from key structural parts
+5. Chamber details including wall thickness and depth
+6. Orthographic drawings with detailed dimensions of tether line guides
+7. Orthographic drawings of wheels with sectioned view and detailed dimensions
+8. Orthographic drawings with detailed dimensions of front wheels / wheel support system
+9. Orthographic drawings with detailed dimensions of rear wheels / wheel support system
+10. Orthographic drawings with detailed dimensions of nose cone
+11. Orthographic drawings with detailed dimensions of front wing and support structure highlighting wing surface/boundary
+12. Orthographic drawings with detailed dimensions of rear wing and support structure highlighting wing surface/boundary
+13. Detailed description of intended quality and finish in relation to individual components/assembled car
