@@ -5,6 +5,7 @@ import { detectPortfolioType, scanSignals } from "../engine/signals";
 import { extractPdf } from "../engine/extract";
 import { runEvaluation, type EvaluationProgress } from "../engine/evaluate";
 import { loadHistory, removeFromHistory, saveToHistory } from "../engine/history";
+import { archiveEvaluation } from "../engine/archive";
 
 export type Phase =
   | "landing"
@@ -106,6 +107,8 @@ export const useStore = create<AppState>((set, get) => ({
       );
       const history = saveToHistory(evaluation);
       set({ phase: "results", evaluation, history });
+      // Internal archival only — best-effort, never blocks or affects the user.
+      archiveEvaluation(evaluation);
     } catch (err) {
       console.error(err);
       set({
