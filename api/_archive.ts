@@ -130,10 +130,16 @@ function getClient(): JWT | null {
     return null;
   }
   try {
+    /* Optional domain-wide delegation: impersonate a real user who HAS Drive
+       storage. Files are then owned by that user instead of the quota-less
+       service account, which is what fixes `storageQuotaExceeded` when
+       archiving into My Drive. Requires DWD enabled for the SA in Workspace. */
+    const subject = process.env.GDRIVE_IMPERSONATE_SUBJECT?.trim() || undefined;
     cachedClient = new JWT({
       email: creds.client_email,
       key: creds.private_key,
       scopes: [DRIVE_SCOPE],
+      subject,
     });
   } catch {
     cachedClient = null;
@@ -155,6 +161,30 @@ function logFailure(tool: string, uploadId: string, reason: string): void {
 function short(err: unknown): string {
   if (err instanceof Error) return err.message.slice(0, 200);
   return String(err).slice(0, 200);
+}
+
+/** Actionable operator hint for well-known Google Drive error reasons. */
+function hintForReason(googleReason: string | undefined): string {
+  switch (googleReason) {
+    case "storageQuotaExceeded":
+      return (
+        " HINT: A service account has NO Drive storage of its own, so it cannot OWN files in a My Drive folder " +
+        "(folders use 0 bytes, which is why folder creation succeeded but file uploads fail). Fix: either (a) make " +
+        "GDRIVE_ARCHIVE_FOLDER_ID a folder inside a SHARED DRIVE and add the service account as Content Manager, or " +
+        "(b) set GDRIVE_IMPERSONATE_SUBJECT to a Workspace user with quota and enable domain-wide delegation for the SA."
+      );
+    case "insufficientFilePermissions":
+    case "insufficientPermissions":
+      return " HINT: The service account needs Editor/Content-Manager access to the target folder (not just Viewer).";
+    case "teamDriveFileLimitExceeded":
+      return " HINT: The Shared Drive has hit its file limit.";
+    case "dailyLimitExceeded":
+    case "rateLimitExceeded":
+    case "userRateLimitExceeded":
+      return " HINT: Drive API rate/quota limit — usually transient.";
+    default:
+      return "";
+  }
 }
 
 function sleep(ms: number): Promise<void> {
@@ -208,6 +238,25 @@ interface HttpResult {
   json: any;
   text: string;
   reason?: string;
+  /** Google's specific error token, e.g. "storageQuotaExceeded". */
+  googleReason?: string;
+  /** Human-readable detail pulled from Google's error body. */
+  detail?: string;
+}
+
+/** Pull Google Drive's specific error reason + message out of the response
+ *  body. Drive errors look like:
+ *    { error: { code, message, errors: [{ reason, message }] } }         */
+function extractGoogleError(json: any, text: string): { googleReason?: string; detail: string } {
+  const gErr = json?.error;
+  if (gErr) {
+    const googleReason: string | undefined =
+      (Array.isArray(gErr.errors) && gErr.errors[0]?.reason) || gErr.status || undefined;
+    const message: string | undefined = gErr.errors?.[0]?.message || gErr.message;
+    const detail = [googleReason, message].filter(Boolean).join(": ").slice(0, 400);
+    return { googleReason, detail: detail || `HTTP ${gErr.code ?? ""}`.trim() };
+  }
+  return { detail: (text || "").slice(0, 400) };
 }
 
 async function driveRequest(
@@ -241,7 +290,8 @@ async function driveRequest(
       if (res.ok) return { ok: true, status: res.status, json, text };
 
       const { reason, retryable } = classifyStatus(res.status);
-      last = { ok: false, status: res.status, json, text, reason };
+      const { googleReason, detail } = extractGoogleError(json, text);
+      last = { ok: false, status: res.status, json, text, reason, googleReason, detail };
       if (retryable && attempt < MAX_ATTEMPTS) {
         await sleep(RETRY_DELAY_MS);
         continue;
@@ -312,7 +362,12 @@ async function ensureFolder(name: string, parentId: string, token: string): Prom
     return createdId;
   }
 
-  throw new Error(`folder "${name}": ${created.reason || found.reason || "unresolved"}`);
+  const failedOp = created.status ? created : found;
+  const detail = failedOp.detail ? ` — ${failedOp.detail}` : "";
+  throw new Error(
+    `folder "${name}": ${failedOp.reason || "unresolved"}${detail}` +
+      hintForReason(failedOp.googleReason),
+  );
 }
 
 function toBuffer(part: string | Uint8Array): Uint8Array {
@@ -446,7 +501,13 @@ export async function archiveBundle(input: ArchiveBundle): Promise<ArchiveResult
       if (r.ok) uploaded.push(cleanFolderName(f.name));
       else {
         failed.push(cleanFolderName(f.name));
-        logFailure(tool, uploadId, `Upload of "${f.name}" failed: ${r.reason || "unknown"}`);
+        const detail = r.detail ? ` — ${r.detail}` : "";
+        logFailure(
+          tool,
+          uploadId,
+          `Upload of "${f.name}" failed: ${r.reason} (HTTP ${r.status})${detail}` +
+            hintForReason(r.googleReason),
+        );
       }
     }
 
