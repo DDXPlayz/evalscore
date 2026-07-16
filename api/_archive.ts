@@ -14,7 +14,7 @@
  *
  * Folder layout (created automatically, idempotently):
  *
- *   <GDRIVE_ARCHIVE_FOLDER_ID>/       ← e.g. "Anantam Engineering", shared w/ SA
+ *   <GDRIVE_ARCHIVE_FOLDER_ID>/       ← e.g. "Anantam Engineering" in My Drive
  *     └── <Tool>/                     ← AeroVision | EvalScore | Tech Verify
  *           └── <YYYY>/               ← ISO year
  *                 └── <MM-DD>/        ← ISO month-day
@@ -27,22 +27,23 @@
  * The Vercel router does not route files whose name starts with "_", so
  * this is a shared helper, not an HTTP endpoint.
  *
+ * AUTHENTICATION: OAuth 2.0 as a personal Gmail account (via a long-lived
+ * refresh token). Uploads are owned by that Gmail user, so they use the
+ * account's own Drive storage — this is what avoids the service-account
+ * `storageQuotaExceeded` limitation on personal My Drive folders. Generate
+ * the refresh token once with scripts/get-drive-refresh-token.mjs.
+ *
  * Configuration (ALL optional — if unset, archival silently no-ops and the
  * application is completely unaffected):
- *   GOOGLE_SERVICE_ACCOUNT_JSON     full service-account JSON (prod / Vercel)
- *   GOOGLE_APPLICATION_CREDENTIALS  path to the JSON key file (local dev)
- *   GDRIVE_CREDENTIALS_PATH         alternate path to the JSON key file
- *   GDRIVE_ARCHIVE_FOLDER_ID        destination root folder shared with the SA
+ *   GOOGLE_CLIENT_ID          OAuth 2.0 client id (Google Cloud Console)
+ *   GOOGLE_CLIENT_SECRET      OAuth 2.0 client secret
+ *   GOOGLE_REFRESH_TOKEN      refresh token for the Gmail account
+ *   GDRIVE_ARCHIVE_FOLDER_ID  destination root folder in that account's Drive
  */
 
-import { JWT } from "google-auth-library";
-import { readFileSync } from "node:fs";
+import { OAuth2Client } from "google-auth-library";
 import { randomUUID } from "node:crypto";
 
-/* Full Drive scope: required so the service account can list/create inside a
-   folder that was *shared* with it (drive.file only covers app-created files
-   opened via the picker, which does not include a pre-shared folder). */
-const DRIVE_SCOPE = "https://www.googleapis.com/auth/drive";
 const FILES_URL = "https://www.googleapis.com/drive/v3/files";
 const UPLOAD_URL =
   "https://www.googleapis.com/upload/drive/v3/files" +
@@ -52,10 +53,6 @@ const FOLDER_MIME = "application/vnd.google-apps.folder";
 const HTTP_TIMEOUT_MS = 12_000;
 const MAX_ATTEMPTS = 2; // one retry on transient failures (429 / 5xx / network)
 const RETRY_DELAY_MS = 1_500;
-
-/** Last-resort local-dev credential path (git-ignored key file). Tried only
- *  if no env config is present. */
-const DEFAULT_LOCAL_KEY = "anantam-engineering-b55a52678d5c.json";
 
 export interface ArchiveFile {
   name: string;
@@ -89,58 +86,34 @@ export interface ArchiveResult {
 }
 
 /* ── caches (persist across warm serverless invocations) ── */
-let cachedClient: JWT | null | undefined; // undefined = not yet attempted
+let cachedClient: OAuth2Client | null | undefined; // undefined = not yet attempted
 let warnedNotConfigured = false;
 const folderCache = new Map<string, string>(); // `${parentId}/${name}` -> folderId
 
-/* ── credential loading (never throws) ── */
-function loadServiceAccount(): { client_email: string; private_key: string } | null {
-  try {
-    let raw: string | null = null;
-
-    const inline = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
-    if (inline && inline.trim()) {
-      raw = inline.trim();
-    } else {
-      const path =
-        process.env.GOOGLE_APPLICATION_CREDENTIALS?.trim() ||
-        process.env.GDRIVE_CREDENTIALS_PATH?.trim() ||
-        null;
-      try {
-        raw = readFileSync(path || DEFAULT_LOCAL_KEY, "utf8");
-      } catch {
-        raw = null; // no file — perfectly fine, archival just no-ops
-      }
-    }
-
-    if (!raw) return null;
-    const json = JSON.parse(raw) as { client_email?: string; private_key?: string };
-    if (!json.client_email || !json.private_key) return null;
-    return { client_email: json.client_email, private_key: json.private_key };
-  } catch {
-    return null;
-  }
-}
-
-function getClient(): JWT | null {
+/**
+ * Build an authenticated OAuth2 Drive client from environment credentials, or
+ * return null if unconfigured (archival then silently no-ops). The refresh
+ * token belongs to a personal Gmail account, so uploads are owned by — and
+ * billed to — that account's own Drive storage. `getAccessToken()` on this
+ * client transparently exchanges the refresh token for a fresh access token
+ * and caches it until it expires, so no user interaction is ever required
+ * after the one-time setup. Never throws.
+ */
+function getClient(): OAuth2Client | null {
   if (cachedClient !== undefined) return cachedClient;
-  const creds = loadServiceAccount();
-  if (!creds) {
+
+  const clientId = process.env.GOOGLE_CLIENT_ID?.trim();
+  const clientSecret = process.env.GOOGLE_CLIENT_SECRET?.trim();
+  const refreshToken = process.env.GOOGLE_REFRESH_TOKEN?.trim();
+  if (!clientId || !clientSecret || !refreshToken) {
     cachedClient = null;
     return null;
   }
+
   try {
-    /* Optional domain-wide delegation: impersonate a real user who HAS Drive
-       storage. Files are then owned by that user instead of the quota-less
-       service account, which is what fixes `storageQuotaExceeded` when
-       archiving into My Drive. Requires DWD enabled for the SA in Workspace. */
-    const subject = process.env.GDRIVE_IMPERSONATE_SUBJECT?.trim() || undefined;
-    cachedClient = new JWT({
-      email: creds.client_email,
-      key: creds.private_key,
-      scopes: [DRIVE_SCOPE],
-      subject,
-    });
+    const client = new OAuth2Client({ clientId, clientSecret });
+    client.setCredentials({ refresh_token: refreshToken });
+    cachedClient = client;
   } catch {
     cachedClient = null;
   }
@@ -168,14 +141,13 @@ function hintForReason(googleReason: string | undefined): string {
   switch (googleReason) {
     case "storageQuotaExceeded":
       return (
-        " HINT: A service account has NO Drive storage of its own, so it cannot OWN files in a My Drive folder " +
-        "(folders use 0 bytes, which is why folder creation succeeded but file uploads fail). Fix: either (a) make " +
-        "GDRIVE_ARCHIVE_FOLDER_ID a folder inside a SHARED DRIVE and add the service account as Content Manager, or " +
-        "(b) set GDRIVE_IMPERSONATE_SUBJECT to a Workspace user with quota and enable domain-wide delegation for the SA."
+        " HINT: The Gmail account's Google Drive storage is full. Free up space (or upgrade the plan) for that " +
+        "account, then uploads will resume. Confirm GOOGLE_REFRESH_TOKEN belongs to the account that owns " +
+        "GDRIVE_ARCHIVE_FOLDER_ID."
       );
     case "insufficientFilePermissions":
     case "insufficientPermissions":
-      return " HINT: The service account needs Editor/Content-Manager access to the target folder (not just Viewer).";
+      return " HINT: The authenticated Gmail account needs edit access to GDRIVE_ARCHIVE_FOLDER_ID (it should own it, or be an editor).";
     case "teamDriveFileLimitExceeded":
       return " HINT: The Shared Drive has hit its file limit.";
     case "dailyLimitExceeded":
@@ -317,8 +289,9 @@ async function driveRequest(
   return last;
 }
 
-async function getToken(client: JWT): Promise<string | null> {
+async function getToken(client: OAuth2Client): Promise<string | null> {
   try {
+    // Transparently refreshes the access token from the refresh token as needed.
     const at = await client.getAccessToken();
     return at?.token ?? null;
   } catch {
@@ -447,7 +420,7 @@ export async function archiveBundle(input: ArchiveBundle): Promise<ArchiveResult
         warnedNotConfigured = true;
         console.info(
           "[Google Drive Archive] Not configured " +
-            `(${!client ? "no service-account credentials" : "no GDRIVE_ARCHIVE_FOLDER_ID"}); ` +
+            `(${!client ? "no OAuth credentials (GOOGLE_CLIENT_ID/SECRET/REFRESH_TOKEN)" : "no GDRIVE_ARCHIVE_FOLDER_ID"}); ` +
             "archival is disabled. This does not affect the application.",
         );
       }

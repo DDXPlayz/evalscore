@@ -72,3 +72,43 @@ Token usage (including cache share) is reported on every result page.
   boot, and is never exposed to the client.
 - **Rubrics are data** — new seasons drop into `shared/rubric.ts` without
   touching the pipeline.
+
+## Google Drive archival (optional, internal)
+
+Each tool (EvalScore, AeroVision, Tech Verify) can quietly file a copy of its
+results to Google Drive for internal record-keeping via `POST /api/archive`
+(server code in `api/_archive.ts`). It is **best-effort and fully isolated** —
+fire-and-forget, never awaited, never surfaced to users; if Drive is
+unconfigured or fails, the tools are completely unaffected. Results are filed as
+`<root>/<Tool>/<YYYY>/<MM-DD>/<UploadId>/{metadata.json, analysis.json, thumbnail.webp, …}`.
+
+**This version authenticates as a personal Gmail account via OAuth 2.0.** A
+service account cannot own files in a personal *My Drive* folder (uploads fail
+with `storageQuotaExceeded`), so the archive account itself is authenticated
+with a long-lived refresh token; uploads use that account's own Drive storage.
+
+### One-time setup
+
+1. In [Google Cloud Console](https://console.cloud.google.com): create a
+   project, enable the **Google Drive API**, configure the OAuth consent screen
+   (External; add your Gmail as a **Test user**), then create an **OAuth client
+   ID → Desktop app** and download its JSON.
+2. Generate a refresh token (opens your browser, sign in with the Gmail account
+   that will own the archive folder):
+   ```bash
+   node apps/evalscore/scripts/get-drive-refresh-token.mjs <client_secret.json>
+   ```
+   It prints `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`.
+3. In that account's Drive, create the archive folder and copy its id from the
+   URL (`.../folders/<THIS_ID>`).
+4. Set these env vars (locally in `.env`, and in Vercel → Settings → Environment):
+   ```env
+   GOOGLE_CLIENT_ID=…
+   GOOGLE_CLIENT_SECRET=…
+   GOOGLE_REFRESH_TOKEN=…
+   GDRIVE_ARCHIVE_FOLDER_ID=…
+   ```
+
+Access tokens are refreshed automatically from the refresh token — no further
+interaction is ever required. The helper script is standalone and is never
+imported by the application.
