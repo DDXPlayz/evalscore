@@ -6,12 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "start": "NODE_ENV=production tsx api/index.ts",
     "lint": "tsc -b --noEmit"
   },
   "dependencies": {
-    "@anantam/ui": "*",
-    "@anantam/shared": "*",
+    "@anantam/ui": "file:./ui",
+    "@anantam/shared": "file:./shared",
     "@google/genai": "^2.11.0",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",

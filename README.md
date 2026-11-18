@@ -6,29 +6,39 @@ EvalScore — part of the **Anantam Engineering Platform** (alongside AeroVision
 
 ```bash
 npm install
-cp .env.example .env        # add your ANTHROPIC_API_KEY
+cp .env.example .env        # add your GEMINI_API_KEY
 npm run dev                 # web on :5173, API on :8787
 ```
+
+Get a key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey). It is
+read and validated server-side only and never reaches the client.
 
 Production:
 
 ```bash
-npm run build
-npm start                   # serves the built client + API on :8787
+npm run build               # static client → dist/
 ```
+
+The client is static and the four endpoints under `api/` deploy as serverless
+functions — that is how `tools.anantamracing.com/evalscore` is served. There is no
+long-running server to start.
 
 ## Architecture
 
 ```
-shared/
-  rubric.ts          Official scorecards as data (3 portfolios, 25 criteria,
+shared/              Local package (@anantam/shared), vendored from the monorepo
+  src/rubric.ts      Official scorecards as data (3 portfolios, 25 criteria,
                      bands, expected evidence, terminology signals)
-  types.ts           Contracts shared by client and server
-server/
+  src/types.ts       Contracts shared by client and API
+ui/                  Local package (@anantam/ui): the shared navbar
+api/                 Serverless functions
   env.ts             Zod-validated environment (key never reaches the client)
-  evaluator.ts       Claude evaluation engine: cached rubric + cached document,
-                     grouped criterion calls, structured JSON output
-  index.ts           Express API + production static serving
+  evaluator.ts       Gemini evaluation engine (@google/genai): judge persona +
+                     full rubric as systemInstruction, grouped criterion calls,
+                     schema-constrained JSON output
+  evaluate-group.ts  One criterion group per request
+  archive.ts         Optional, best-effort Drive archival (off unless configured)
+  health.ts          Liveness
 src/
   engine/
     extract.ts       In-browser PDF ingestion (pdf.js): per-page text,
@@ -51,10 +61,14 @@ src/
 2. **Scan deterministically.** Portfolio type detection, page-limit compliance,
    and per-criterion terminology/relevance mapping are computed in JS and shipped
    to the model as compact pre-verified signals — the model never re-derives them.
-3. **Evaluate in cached groups.** The system prompt (official rubric) and the
-   document block carry prompt-cache breakpoints. The first criterion group pays
-   for the document once; the remaining groups run in parallel and read it from
-   cache at ~10% of the input price.
+3. **Evaluate in cached groups.** The judge persona and the full official rubric go
+   in as `systemInstruction`, identical across every call for a portfolio type, and
+   the document block is stable too. The first criterion group runs alone so that
+   prefix is seen once; the remaining groups then run in parallel and hit Gemini's
+   implicit context cache. The engine records `cachedContentTokenCount` from each
+   response's `usageMetadata`, so the cache hit rate is measured rather than assumed.
+   Primary model `gemini-2.5-flash`, falling back to `gemini-3-pro-preview` on rate
+   limits or failures.
 4. **See only what matters.** Page renders (downscaled JPEGs) are attached only
    to the group containing visual criteria (Document Presentation, Team Identity).
 5. **Structured verdicts.** Responses are schema-constrained JSON: score, band,
