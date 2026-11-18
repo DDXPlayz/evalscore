@@ -82,9 +82,9 @@ Token usage (including cache share) is reported on every result page.
 - **Transparent** — every mark maps to an official band, with quoted evidence
   you can click to open the exact page.
 - **Deterministic first** — anything verifiable without AI is verified without AI.
-- **Secrets stay server-side** — the Anthropic key lives in `.env`, validated at
-  boot, and is never exposed to the client.
-- **Rubrics are data** — new seasons drop into `shared/rubric.ts` without
+- **Secrets stay server-side** — the Gemini key lives in `.env`, is validated by a
+  Zod schema in `api/env.ts` at boot, and is never exposed to the client.
+- **Rubrics are data** — new seasons drop into `shared/src/rubric.ts` without
   touching the pipeline.
 
 ## Google Drive archival (optional, internal)
