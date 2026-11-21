@@ -16,8 +16,15 @@ read and validated server-side only and never reaches the client.
 Production:
 
 ```bash
-npm run build               # static client → dist/
+npm run build               # static client → dist/, built for /evalscore/
+VITE_BASE=/ npm run build   # build for the root instead
 ```
+
+**On the base path.** Production is served from
+`tools.anantamracing.com/evalscore/`, so `vite.config.ts` defaults `base` to
+`/evalscore/` and a plain build produces a `dist/` whose assets 404 if you serve
+it at `/`. Set `VITE_BASE=/` to build for the root. The same applies to
+TechVerify and AeroVision.
 
 The client is static and the four endpoints under `api/` deploy as serverless
 functions — that is how `tools.anantamracing.com/evalscore` is served. There is no
